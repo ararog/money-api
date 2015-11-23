@@ -36,7 +36,7 @@ server.post({ path:'/api/auth', version: '1.0.0' }, auth_controller.authenticate
 server.get({ path:'/api/expenses/overview', version: '1.0.0' }, expenses_controller.overview);
 server.get({ path:'/api/expenses', version: '1.0.0' }, expenses_controller.expenses);
 server.get({ path:'/api/expenses/:id', version: '1.0.0' }, expenses_controller.load_expense);
-server.delete({ path:'/api/expenses/:id', version: '1.0.0' }, expenses_controller.delete_expense);
+server.del({ path:'/api/expenses/:id', version: '1.0.0' }, expenses_controller.delete_expense);
 server.put({ path:'/api/expenses/:id', version: '1.0.0' }, expenses_controller.update_expense);
 server.post({ path:'/api/expenses', version: '1.0.0' }, expenses_controller.insert_expense);
 server.get({ path:'/api/categories', version: '1.0.0' }, categories_controller.categories);

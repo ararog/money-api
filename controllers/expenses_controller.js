@@ -86,3 +86,15 @@ exports.load_expense = function (req, res, next) {
 
     next();
 }
+
+exports.delete_expense = function (req, res, next) {
+
+}
+
+exports.update_expense = function (req, res, next) {
+
+}
+
+exports.insert_expense = function (req, res, next) {
+
+}
