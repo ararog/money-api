@@ -89,12 +89,65 @@ exports.load_expense = function (req, res, next) {
 
 exports.delete_expense = function (req, res, next) {
 
+    console.log('Deleting expense with id ' + req.params.id)
+
+    new Expense({id: req.params.id})
+        .destroy()
+        .then(function(model) {
+            res.send(200)
+        })
+        .catch(function(err) {
+            res.send(500, { error: 'Could not delete data' })
+        });
+
+    next();
 }
 
 exports.update_expense = function (req, res, next) {
 
+    console.log('Updating expense with id ' + req.params.id)
+
+    var data = {
+        id: req.params.id,
+        user_id: req.params.user_id,
+        category_id: req.params.category_id,
+        description: req.params.description,
+        amount: req.params.amount,
+        comment: req.params.comment
+    }
+
+    new Expense(data)
+        .save()
+        .then(function(model) {
+            res.send(model.toJSON())
+        })
+        .catch(function(err) {
+            res.send(500, { error: 'Could not update data' })
+        });
+
+    next();
 }
 
 exports.insert_expense = function (req, res, next) {
 
+    console.log('Adding new expense')
+
+    var data = {
+        user_id: req.params.user_id,
+        category_id: req.params.category_id,
+        description: req.params.description,
+        amount: req.params.amount,
+        comment: req.params.comment
+    }
+
+    new Expense(data)
+        .save()
+        .then(function(model) {
+            res.send(model.toJSON())
+        })
+        .catch(function(err) {
+            res.send(500, { error: 'Could not insert data' })
+        });
+
+    next();
 }

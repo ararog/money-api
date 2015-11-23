@@ -1,30 +1,31 @@
 {
-    "name": "Money",
-    "version": "0.0.1",
-    "description": "Application to track monthly expenses",
-    "main": "app.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "server": "node server.js",
-        "lint": "eslint .",
-        "knex": "knex"
-    },
-    "author": "Manjesh V",
-    "license": "BSD-2-Clause",
-    "dependencies": {
-        "bookshelf": "^0.9.1",
-        "bunyan": "^1.5.1",
-        "chai": "^3.4.1",
-        "faker": "^3.0.1",
-        "jsonwebtoken": "^5.4.1",
-        "knex": "^0.9.0",
-        "md5": "^2.0.0",
-        "restify": "*",
-        "restify-jwt": "0.4.0",
-        "sqlite3": "~3.1.1",
-        "useful-date": "0.0.6"
-    },
-    "devDependencies": {
-        "eslint": "^1.3.1"
-    }
+  "name": "Money",
+  "version": "0.0.1",
+  "description": "Application to track monthly expenses",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "server": "node server.js",
+    "lint": "eslint .",
+    "knex": "knex"
+  },
+  "author": "Manjesh V",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "bookshelf": "^0.9.1",
+    "bunyan": "^1.5.1",
+    "chai": "^3.4.1",
+    "faker": "^3.0.1",
+    "jsonwebtoken": "^5.4.1",
+    "knex": "^0.9.0",
+    "md5": "^2.0.0",
+    "mocha": "^2.3.4",
+    "restify": "*",
+    "restify-jwt": "0.4.0",
+    "sqlite3": "~3.1.1",
+    "useful-date": "0.0.6"
+  },
+  "devDependencies": {
+    "eslint": "^1.3.1"
+  }
 }
