@@ -14,18 +14,14 @@ server.use(jwt({ secret: new Buffer('money4nothing2feed', 'base64')}).unless({ p
 
 restify.CORS.ALLOW_HEADERS.push('authorization');
 
-server.use(restify.CORS({
-    origins: ['http://localhost:3000']
-}));
+server.use(restify.CORS());
 
-/*
 server.on('after', restify.auditLogger({
   log: bunyan.createLogger({
     name: 'audit',
     stream: process.stdout
   })
 }));
-*/
 
 server.on('UnauthorizedError', function (req, res, err, cb) {
   err.body = { error: 'Not Authorized' };
