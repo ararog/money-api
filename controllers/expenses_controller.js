@@ -109,7 +109,7 @@ exports.update_expense = function (req, res, next) {
 
     var data = {
         id: req.params.id,
-        user_id: req.params.user_id,
+        user_id: req.user.id,
         category_id: req.params.category_id,
         description: req.params.description,
         amount: req.params.amount,
@@ -133,7 +133,7 @@ exports.insert_expense = function (req, res, next) {
     console.log('Adding new expense')
 
     var data = {
-        user_id: req.params.user_id,
+        user_id: req.user.id,
         category_id: req.params.category_id,
         description: req.params.description,
         amount: req.params.amount,
