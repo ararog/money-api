@@ -2,34 +2,42 @@ var Expense = require('../models/expense')
 
 exports.expenses = function (req, res, next) {
 
-    console.log('Loading expenses from user ' + req.user.id + ' at page ' + req.params.page)
+		page = req.params.page || 1
 
-    page = req.params.page
+    console.log('Loading expenses from user ' + req.user.id + ' at page ' + page)
 
     Expense
     .query('where', 'user_id', '=', req.user.id)
     .count('id')
     .then(function(count) {
-
-        Expense
-        .query(function (qb) {
-            qb.where('user_id', '=', req.user.id)
-            .limit(10)
-            .offset((page - 1) * 10)
-        })
-        .fetchAll()
-        .then(function(data) {
-            results = {
-                total: count,
-                items: data.toJSON()
-            }
-            res.send(results)
-        }).catch(function(err) {
-            res.send(500, { error: 'Error while loading data' })
-        });
+				if(count == 0) {
+					results = {
+							total: 0,
+							items: []
+					}
+					res.send(results)
+				}
+				else {
+	        Expense
+	        .query(function (qb) {
+	            qb.where('user_id', '=', req.user.id)
+	            .limit(10)
+	            .offset((page - 1) * 10)
+	        })
+	        .fetchAll()
+	        .then(function(data) {
+	            results = {
+	                total: count,
+	                items: data.toJSON()
+	            }
+	            res.send(results)
+	        }).catch(function(err) {
+	            res.send(500, { error: 'Error while loading data' })
+	        });
+				}
     });
 
-    next();
+		next();
 }
 
 exports.overview = function (req, res, next) {
