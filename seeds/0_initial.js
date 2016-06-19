@@ -3,7 +3,7 @@ var md5 = require('md5')
 exports.seed = function(knex, Promise) {
     return Promise.join(
         knex('users').del(),
-        knex('users').insert({id: 1, email: 'rogerio.araujo@gmail.com', password: md5('1978@rpa')}),
+        knex('users').insert({id: 1, email: 'rogerio.araujo@gmail.com', password: md5('')}),
 
         knex('categories').del(),
         knex('categories').insert({name: 'Food'}),
