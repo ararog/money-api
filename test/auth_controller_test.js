@@ -11,7 +11,7 @@ describe('auth', function() {
     // Test #1
     describe('perform authentication', function() {
         it('should get a 200 response', function(done) {
-            client.post('/api/auth', { email: 'rogerio.araujo@gmail.com', password: md5('1978@rpa') }, function(err, req, res, data) {
+            client.post('/api/auth', { email: 'rogerio.araujo@gmail.com', password: md5('') }, function(err, req, res, data) {
                 if (err) {
                     throw new Error(err);
                 }
