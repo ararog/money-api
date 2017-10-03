@@ -20,8 +20,9 @@
     "knex": "^0.9.0",
     "md5": "^2.0.0",
     "mocha": "^2.3.4",
-    "restify": "*",
-    "restify-jwt": "0.4.0",
+    "restify": "^6.0.1",
+    "restify-cors-middleware": "^1.0.1",
+    "restify-jwt-community": "0.5.2",
     "sqlite3": "~3.1.1",
     "useful-date": "0.0.6"
   },

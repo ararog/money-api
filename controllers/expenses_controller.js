@@ -2,6 +2,8 @@ var Expense = require('../models/expense')
 
 exports.expenses = function (req, res, next) {
 
+		console.log(req.params)
+		console.log(req.query)
 		page = req.params.page || 1
 
     console.log('Loading expenses from user ' + req.user.id + ' at page ' + page)

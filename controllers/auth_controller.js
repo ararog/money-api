@@ -9,6 +9,7 @@ exports.authenticate = function (req, res, next) {
         var token = jwt.sign({ id: user.get('id') }, new Buffer('money4nothing2feed', 'base64'))
         res.send({ auth_token: token})
     }).catch(function(err) {
+      console.log(err)
         res.send(403, { error: 'Invalid username or password' })
     });
 
